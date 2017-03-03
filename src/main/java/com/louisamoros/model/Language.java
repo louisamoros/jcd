@@ -1,11 +1,13 @@
 package com.louisamoros.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
  * @author Louis Amoros on 03/03/17.
  */
+@Entity
 public class Language {
 
   @Id

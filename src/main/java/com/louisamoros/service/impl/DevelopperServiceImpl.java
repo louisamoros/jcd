@@ -4,10 +4,9 @@ import com.louisamoros.dao.DevelopperDAO;
 import com.louisamoros.model.Developper;
 import com.louisamoros.service.DevelopperService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -41,7 +40,8 @@ public class DevelopperServiceImpl implements DevelopperService {
   }
 
   @Override
-  public Page<Developper> getAll(Pageable pageable) {
-    return developperDAO.findAll(pageable);
+  public List<Developper> getAllByLanguageName(String languageName) {
+    return developperDAO.findByLanguageName(languageName);
   }
+
 }

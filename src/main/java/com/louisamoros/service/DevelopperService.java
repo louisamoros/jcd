@@ -1,9 +1,8 @@
 package com.louisamoros.service;
 
 import com.louisamoros.model.Developper;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -43,11 +42,10 @@ public interface DevelopperService {
   Iterable<Developper> getAll();
 
   /**
-   * Get all.
-   *
-   * @param pageable the pageable request
-   * @return all developpers
+   * GEt all by language.
+   * @param language the language
+   * @return the devloppers
    */
-  Page<Developper> getAll(Pageable pageable);
+  List<Developper> getAllByLanguageName(String language);
 
 }

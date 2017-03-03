@@ -6,9 +6,17 @@ CREATE EXTENSION IF NOT EXISTS unaccent;
 ALTER DATABASE postgres SET search_path TO jcd_recruiting, public;
 SET search_path TO jcd_recruiting, public;
 
--- User table
-CREATE TABLE jcd_recruiting.developper (
-  id                UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  last_name         VARCHAR(50),
-  first_name        VARCHAR(50)
+-- Language table
+CREATE TABLE jcd_recruiting.language (
+  name        VARCHAR(50) NOT NULL PRIMARY KEY,
+  description VARCHAR(50)
 );
+
+-- Developer table
+CREATE TABLE jcd_recruiting.developper (
+  id         UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  last_name  VARCHAR(50),
+  first_name VARCHAR(50),
+  language   VARCHAR REFERENCES jcd_recruiting.language (name)
+);
+
