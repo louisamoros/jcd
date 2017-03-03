@@ -17,6 +17,6 @@ CREATE TABLE jcd_recruiting.developper (
   id         UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   last_name  VARCHAR(50),
   first_name VARCHAR(50),
-  language   VARCHAR REFERENCES jcd_recruiting.language (name)
+  language_name   VARCHAR REFERENCES jcd_recruiting.language (name)
 );
 

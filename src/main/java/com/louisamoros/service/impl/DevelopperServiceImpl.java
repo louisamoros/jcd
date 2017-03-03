@@ -1,7 +1,9 @@
 package com.louisamoros.service.impl;
 
 import com.louisamoros.dao.DevelopperDAO;
+import com.louisamoros.dao.LanguageDAO;
 import com.louisamoros.model.Developper;
+import com.louisamoros.model.Language;
 import com.louisamoros.service.DevelopperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,9 @@ public class DevelopperServiceImpl implements DevelopperService {
 
   @Autowired
   private DevelopperDAO developperDAO;
+
+  @Autowired
+  private LanguageDAO languageDAO;
 
   @Override
   public Developper get(UUID id) {
@@ -41,7 +46,8 @@ public class DevelopperServiceImpl implements DevelopperService {
 
   @Override
   public List<Developper> getAllByLanguageName(String languageName) {
-    return developperDAO.findByLanguageName(languageName);
+    Language language = languageDAO.findOne(languageName);
+    return developperDAO.findByLanguage(language);
   }
 
 }

@@ -1,6 +1,7 @@
 package com.louisamoros.dao;
 
 import com.louisamoros.model.Developper;
+import com.louisamoros.model.Language;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
@@ -14,9 +15,9 @@ public interface DevelopperDAO extends PagingAndSortingRepository<Developper, UU
   /**
    * Find by language name.
    *
-   * @param languageName the language name
+   * @param language the language name
    * @return the list developper
    */
-  List<Developper> findByLanguageName(String languageName);
+  List<Developper> findByLanguage(Language language);
 
 }
