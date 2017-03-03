@@ -1,14 +1,31 @@
 package com.louisamoros.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * Created by louis on 01/03/17.
  */
-public class User {
+@Entity
+public class Developper {
 
+  @Id
+  private UUID id;
+  @Column(name = "first_name")
   private String firstName;
+  @Column(name = "last_name")
   private String lastName;
+
+  public UUID getId() {
+    return id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
+  }
 
   public String getLastName() {
     return lastName;
@@ -31,9 +48,9 @@ public class User {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    User user = (User) o;
-    return Objects.equals(lastName, user.lastName) &&
-        Objects.equals(firstName, user.firstName);
+    Developper developper = (Developper) o;
+    return Objects.equals(lastName, developper.lastName) &&
+        Objects.equals(firstName, developper.firstName);
   }
 
   @Override
@@ -45,6 +62,7 @@ public class User {
   public String toString() {
     final StringBuilder sb = new StringBuilder("User{");
     sb.append("firstName='").append(firstName);
+    sb.append(", id='").append(id);
     sb.append(", lastName='").append(lastName);
     sb.append('}');
     return sb.toString();
@@ -56,24 +74,29 @@ public class User {
 
   public static class Builder {
 
-    private final User user;
+    private final Developper developper;
 
     private Builder() {
-      user = new User();
+      developper = new Developper();
+    }
+
+    public Builder id(UUID id) {
+      developper.setId(id);
+      return this;
     }
 
     public Builder firstName(String firstName) {
-      user.setFirstName(firstName);
+      developper.setFirstName(firstName);
       return this;
     }
 
     public Builder lastName(String lastName) {
-      user.setLastName(lastName);
+      developper.setLastName(lastName);
       return this;
     }
 
-    public User build() {
-      return user;
+    public Developper build() {
+      return developper;
     }
 
   }
