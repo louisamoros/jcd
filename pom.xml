@@ -145,7 +145,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
-          <finalName>jawg-style-registry</finalName>
+          <finalName>jcd-recruiting</finalName>
         </configuration>
       </plugin>
       <plugin>
